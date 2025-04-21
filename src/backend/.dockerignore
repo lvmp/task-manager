@@ -1,0 +1,18 @@
+# Gradle
+.gradle
+build/
+
+# IDEs
+.idea/
+*.iml
+
+# Sistema
+.DS_Store
+*.log
+
+# Git
+.git
+.gitignore
+
+# Outros
+*.swp
