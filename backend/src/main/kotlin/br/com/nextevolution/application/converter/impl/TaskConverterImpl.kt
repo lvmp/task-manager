@@ -24,4 +24,27 @@ class TaskConverterImpl : TaskConverter {
         dueDate = entity.dueDate,
         status = entity.status
     )
+
+    override fun fromCreateRequest(req: br.com.nextevolution.infrastructure.api.dto.CreateTaskRequest): Task = Task(
+        id = null,
+        title = req.title,
+        description = req.description,
+        priority = req.priority,
+        dueDate = req.dueDate,
+        status = br.com.nextevolution.domain.Status.PENDING
+    )
+
+    override fun fromUpdateRequest(existing: Task, req: br.com.nextevolution.infrastructure.api.dto.UpdateTaskRequest): Task =
+        existing.copy(
+            title = req.title,
+            description = req.description,
+            priority = req.priority,
+            dueDate = req.dueDate
+        )
+
+    override fun fromChangeStatusRequest(req: br.com.nextevolution.infrastructure.api.dto.ChangeTaskStatusRequest, existing: Task): Task =
+        existing.copy(status = req.status)
+
+    override fun toResponse(domain: Task): br.com.nextevolution.infrastructure.api.dto.TaskResponse =
+        br.com.nextevolution.infrastructure.api.dto.TaskResponse.fromDomain(domain)
 } 

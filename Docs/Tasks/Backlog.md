@@ -88,6 +88,8 @@
 - Descrição: Criar controllers no Spring Boot para operações de Task (GET, POST, PUT, DELETE).
 - Complexidade: médio
 - Dependências: TASK-010
+- Status: Concluída
+- Comentário: `TaskController` ajustado para usar `TaskConverter` e DTOs (`CreateTaskRequest`, `TaskResponse`, `UpdateTaskRequest`, `ChangeTaskStatusRequest`).
 
 ## TASK-012: Definir entidade User no backend
 - Descrição: Criar modelo `User` (id, nome, e-mail, senha, role) no domínio.
