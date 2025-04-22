@@ -68,6 +68,8 @@
 - Descrição: Criar máquina de estados (Pendente → Em Progresso → Concluída) em camada de domínio.
 - Complexidade: médio
 - Dependências: TASK-008
+- Status: Concluída
+- Comentário: FSM baseada no enum `Status` no domínio; Domain-Persistence separado com TaskGateway e TaskMapper. Disponível transição de estados via Service.
 
 ## TASK-010: Criar repositórios e serviços de Task
 - Descrição: Implementar interfaces de repositório e classes de serviço que executam operações de CRUD e transição de estados.
@@ -76,9 +78,11 @@
 - Subtarefas:
   - TASK-010.1: Definir interface TaskRepository.
   - TASK-010.2: Implementar TaskRepository JPA com Spring Data.
-  - TASK-010.3: Definir interface TaskService.
-  - TASK-010.4: Implementar TaskServiceImpl para lógica de CRUD e transição de estados.
-  - TASK-010.5: Criar testes unitários para repositório e serviço.
+  - TASK-010.3: Definir interface TaskGateway e TaskConverter.
+  - TASK-010.4: Implementar TaskGatewayImpl e TaskConverterImpl.
+  - TASK-010.5: Implementar UseCases (Create, Get, List, Update, Delete, ChangeStatus).
+- Status: Concluída
+- Comentário: Repositório e entidades criados; Gateway, Converter e UseCases implementados conforme Clean Architecture e SOLID.
 
 ## TASK-011: Expor endpoints REST para Task
 - Descrição: Criar controllers no Spring Boot para operações de Task (GET, POST, PUT, DELETE).
@@ -132,9 +136,18 @@
 - Dependências: TASK-017
 
 ## TASK-020: Escrever testes unitários no backend
-- Descrição: Criar testes JUnit + Mockk para serviços e controllers de Task e User.
+- Descrição: Criar testes unitários JUnit + Mockk para TaskGatewayImpl e para cada UseCase de Task.
 - Complexidade: médio
 - Dependências: TASK-011, TASK-013
+- Subtarefas:
+  - TASK-020.1: Criar testes unitários para TaskGatewayImpl.
+  - TASK-020.2: Criar testes unitários para TaskConverterImpl.
+  - TASK-020.3: Criar testes unitários para CreateTaskUseCaseImpl.
+  - TASK-020.4: Criar testes unitários para GetTaskUseCaseImpl.
+  - TASK-020.5: Criar testes unitários para ListTasksUseCaseImpl.
+  - TASK-020.6: Criar testes unitários para UpdateTaskUseCaseImpl.
+  - TASK-020.7: Criar testes unitários para DeleteTaskUseCaseImpl.
+  - TASK-020.8: Criar testes unitários para ChangeTaskStatusUseCaseImpl.
 
 ## TASK-021: Escrever testes de componentes no frontend
 - Descrição: Criar stories e testes unitários de UI com Storybook e Jest.
