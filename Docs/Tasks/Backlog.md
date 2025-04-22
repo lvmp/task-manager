@@ -95,6 +95,27 @@
 - Descrição: Criar modelo `User` (id, nome, e-mail, senha, role) no domínio.
 - Complexidade: médio
 - Dependências: TASK-002
+- Subtarefas:
+  - TASK-012.1: Criar `UserEntity` JPA em infraestrutura.
+    - Status: Concluída
+    - Comentário: `UserEntity` criado com campos id, name, email, password, role, createdAt e updatedAt.
+  - TASK-012.2: Criar `UserRepository` com Spring Data JPA.
+    - Status: Concluída
+    - Comentário: `UserRepository` implementado estendendo JpaRepository<UserEntity, Long>.
+  - TASK-012.3: Criar `UserConverter` domain↔entity.
+    - Status: Concluída
+    - Comentário: Interface `UserConverter` criada em application.converter.
+  - TASK-012.4: Criar `UserGateway` e implementação.
+    - Status: Concluída
+    - Comentário: Implementado `UserGatewayImpl` usando `UserRepository` e `UserConverter`.
+  - TASK-012.5: Criar usecases de registro (`RegisterUserUseCase`) e autenticação (`AuthenticateUserUseCase`).
+    - Status: Concluída
+    - Comentário: Implementados `RegisterUserUseCaseImpl` e `AuthenticateUserUseCaseImpl` com `PasswordEncoder`.
+  - TASK-012.6: Adicionar `PasswordEncoder` com BCrypt para criptografia de senha.
+    - Status: Concluída
+    - Comentário: Bean `PasswordEncoder` configurado em `SecurityConfig` com `BCryptPasswordEncoder`.
+- Status: Concluída
+- Comentário: Entidade `User`, persistência, gateway, converter, use cases e criptografia de senha implementados com sucesso.
 
 ## TASK-013: Implementar autenticação JWT
 - Descrição: Configurar Spring Security com JWT, endpoints de login e refresh token.
