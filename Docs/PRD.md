@@ -96,4 +96,4 @@ Equipes de 5-50 usuários em startups e pequenas empresas
 **Fase 2 (Pós-MVP):**
 - Integrações com Google Calendar/Microsoft Teams
 - Notificações em tempo real
-- Relatórios analíticos 
+- Relatórios analíticos
