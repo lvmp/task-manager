@@ -61,6 +61,8 @@
 - Descrição: Criar `Task` no domínio com atributos (id, título, descrição, prioridade, prazo, estado).
 - Complexidade: médio
 - Dependências: TASK-002
+- Status: Concluída
+- Comentário: Implementada entidade `Task` com atributos e criadas enums `Priority` e `Status` no domínio.
 
 ## TASK-009: Implementar FSM de estados de tarefa
 - Descrição: Criar máquina de estados (Pendente → Em Progresso → Concluída) em camada de domínio.
